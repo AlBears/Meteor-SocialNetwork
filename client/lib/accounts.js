@@ -42,11 +42,11 @@ AccountsTemplates.addFields([
     displayName: 'Last name'
   },
   {
-    _id: 'userName',
+    _id: 'username',
     type: 'text',
     placeholder: 'Please enter your username',
     required: true,
-    displayName: 'User name'
+    displayName: 'Username'
   },
   {
     _id: 'gender',
