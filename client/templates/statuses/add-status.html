@@ -1,0 +1,18 @@
+<template name="addStatus">
+  <div class="col-md-10">
+    <form action="" class="add-status">
+      {{#if haveErrors}}
+        <div class="alert alert-danger" role="alert">{{haveErrors}}</div>
+      {{/if}}
+      <div class="form-group {{#if haveErrors}}has-error{{/if}}">
+        <textarea name="status"
+          id="status" class="form-control"
+          placeholder="What is on your mind?">
+        </textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm">
+        <i class="fa fa-file-o"></i> Post status
+      </button>
+    </form>
+  </div>
+</template>
