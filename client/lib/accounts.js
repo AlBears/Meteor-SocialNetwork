@@ -7,7 +7,7 @@ AccountsTemplates.configure({
       signUp: 'Join the Social Network'
     }
   },
-  onSubmitHook: () => { FlowRouter.go('home'); },
+  onSubmitHook: () => { FlowRouter.go('dashboard'); },
   onLogoutHook: () => { FlowRouter.go('home'); }
 });
 
