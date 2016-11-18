@@ -18,3 +18,13 @@ FlowRouter.route('/login', {
     BlazeLayout.render('fullLayout', {main: 'login'});
   }
 });
+
+FlowRouter.route('/dashboard', {
+  name: 'dashboard',
+  action () {
+    BlazeLayout.render('mainLayout', {
+      navigation: 'userNav',
+      content: 'dashboard'
+    });
+  }
+});

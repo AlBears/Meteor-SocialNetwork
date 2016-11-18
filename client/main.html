@@ -11,5 +11,14 @@
 </template>
 
 <template name="mainLayout">
-
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        {{> Template.dynamic template = navigation }}
+      </div>
+      <div class="col-md-9">
+        {{> Template.dynamic template = content }}
+      </div>
+    </div>
+  </div>
 </template>
