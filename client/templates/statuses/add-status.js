@@ -9,7 +9,7 @@ Template.addStatus.events({
     let status = event.target.status.value;
 
     if(!_.isEmpty(status)){
-      //call method
+      Meteor.call('statuses.add', status);
       event.target.status.value = '';
       Session.set('error', '');
     } else {
