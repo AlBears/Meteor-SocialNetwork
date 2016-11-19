@@ -1,0 +1,24 @@
+<template name="listStatuses">
+  <div class="col-md-10">
+    <hr>
+    {{ #if Template.subscriptionsReady }}
+      {{ #each statuses }}
+        <div class="well status">
+          <div class="media">
+            <div class="media-body">
+              <p>
+                <string>{{firstName}}</string> posted on
+                <strong>{{statusDate createdAt}}</strong>
+              </p>
+              <p>{{status}}</p>
+            </div>
+          </div>
+        </div>
+      {{ else }}
+        <p>Nothing found</p>
+      {{ /each }}
+    {{ else }}
+      <p>Loading data...</p>
+    {{ /if }}
+  </div>
+</template>
