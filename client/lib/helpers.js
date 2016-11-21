@@ -3,3 +3,17 @@ const moment = require('moment');
 Template.registerHelper('statusDate', (date) => {
   return date ? moment(date).format('DD MMM YYYY@HH:mm'): '';
 });
+/**
+* Check ststus of relationship if a request was sent ot received
+*/
+Template.registerHelper('checkRelationshipStatus', (type, id) => {
+  switch (type) {
+    case 'requestSent':
+      return !!Requests.findOne({requesterId: Meteor.userId(), targetId: id});
+    case 'requestReceived':
+      return !!Requests.findOne({requesterId: id, targetId: Meteor.userId() });
+    default:
+    console.log('Something went wrong');
+    break;
+  }
+})
