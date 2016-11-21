@@ -7,6 +7,10 @@
       {{# EasySearch.Each index=usersIndex }}
       <li class="list-group-item">
         {{profile.fullName}}
+        <button type="button" class="btn btn-primary btn-xs pull-right"
+          data-action="requestFriendship" title="Request friendship">
+          <i class="fa fa-user-plus"></i>
+        </button>
       </li>
       {{/EasySearch.Each}}
 
