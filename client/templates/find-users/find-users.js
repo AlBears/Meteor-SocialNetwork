@@ -13,12 +13,26 @@ Template.findUsers.helpers({
 });
 
 Template.findUsers.events({
-  'click button[data-action="requestFriendship"]'() {
+  /**Call a method to add a new request and send
+   * the id and full name of the target user
+   */
 
-    /**Call a method to add a new request and send
-     * the id and full name of the target user
-     */
+  'click button[data-action="requestFriendship"]'() {
     Meteor.call('requests.add', this.__originalId, this.profile.fullName);
-    console.log(this.__originalId, this.profile.fullName);
+  },
+  /**
+  * Call method to remove a request sent by the logged in user
+  * and pass the id of the TARGET user
+  */
+
+  'click button[data-action="cancelFriendRequest"]' () {
+    Meteor.call('requests.cancel', 'userHasSent', this.__originalId);
+  },
+  /**
+  * Call method to remove a request sent by the logged in user
+  * and pass the id of the REQUESTING user
+  */
+  'click button[data-action="rejectRequest"]' () {
+    Meteor.call('requests.cancel', 'userHasReceived', this.__originalId);
   }
 });
