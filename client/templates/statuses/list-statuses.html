@@ -6,6 +6,12 @@
         <div class="well status">
           <div class="media">
             <div class="media-body">
+              {{#if isOwnerOfStatus owner}}
+                <button type="button" class="btn btn-warning btn-xs pull-right"
+                    data-action="removeStatus" title="Remove status">
+                    <i class="fa fa-minus"></i>
+                </button>
+              {{/if}}
               <p>
                 <string>{{firstName}}</string> posted on
                 <strong>{{statusDate createdAt}}</strong>
