@@ -28,5 +28,21 @@ Meteor.methods({
         console.log('Something went wrong');
         break;
     }
+  },
+  /**
+  * Confirm friend request
+  */
+
+  'requests.confirm'(id, fullName ){
+    if(!this.userId){throw new Meteor.Error(401, 'You must be logged in'); }
+    check(id, String);
+    check(fullName, String );
+
+    Requests.remove({ requesterId: id, targetId: this.userId });
+    Friendships.insert({
+      friendName1: Meteor.user().profile.fullName,
+      friendName2: fullName,
+      friendship: [ this.userId, id ]
+    })
   }
 });
