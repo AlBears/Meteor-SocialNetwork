@@ -44,5 +44,12 @@ Template.findUsers.events({
   */
   'click button[data-action="confirmFriendship"]'(){
     Meteor.call('requests.confirm', this.__originalId, this.profile.fullName);
+  },
+  /**
+  * Call a method to cancel a friendship and send the id of the friend
+  */
+
+  'click button[data-action="cancelFriendship"]'(){
+    Meteor.call('friendships.cancel', this.__originalId);
   }
 });

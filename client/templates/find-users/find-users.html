@@ -5,7 +5,7 @@
 
     <ul class="list-group">
       {{# EasySearch.Each index=usersIndex }}
-      <li class="list-group-item">
+      <li class="list-group-item {{ #if checkRelationshipStatus "alreadyFriends" __originalId }}list-group-item-success{{/if}}">
         {{profile.fullName}}
         {{ #if checkRelationshipStatus "requestSent" __originalId }}
           <button type="button" class="btn btn-danger btn-xs pull-right"
@@ -25,10 +25,19 @@
               </button>
             </div>
           {{ else }}
+
+            {{ #if checkRelationshipStatus "alreadyFriends" __originalId }}
+              <button type="button" class="btn btn-warning btn-xs pull-right"
+                data-action="cancelFriendship" title="Cancel friendship">
+                <i class="fa fa-times"></i>
+              </button>
+
+            {{ else }}
               <button type="button" class="btn btn-primary btn-xs pull-right"
                 data-action="requestFriendship" title="Request friendship">
                 <i class="fa fa-user-plus"></i>
               </button>
+            {{ /if }}
           {{ /if }}
         {{ /if }}
       </li>
