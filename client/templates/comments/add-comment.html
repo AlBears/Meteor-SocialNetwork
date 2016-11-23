@@ -1,0 +1,15 @@
+<template name="addComment">
+  <form>
+    {{#if haveErrors}}
+      <div class="alert alert-danger" role="alert">{{haveErrors}}</div>
+    {{/if}}
+    <div class="form-group">
+      <input type="text" class="form-control" name="comment"
+        id="comment" placeholder="Comment">
+    </div>
+    <button type="submit" class="btn btn-primary btn-xs"
+        title="Post Comment">
+        <i class="fa fa-comment"></i>Post comment
+    </button>
+  </form>
+</template>
