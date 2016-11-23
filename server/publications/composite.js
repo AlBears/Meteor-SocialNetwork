@@ -10,7 +10,17 @@ Meteor.publishComposite('friendData', {
     {
       find: function(friendship){
         return Statuses.find({ owner: { $in: friendship.friendship } });
-      }
+      },
+      children: [
+        {
+          find: function(status, friendship){
+            return Likes.find({ $or: [
+              { owner: { $in: friendship.friendship }},
+              { statusId: status._id }
+            ]  });
+          }
+        }
+      ]
     }
   ]
 });

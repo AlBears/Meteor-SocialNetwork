@@ -11,6 +11,17 @@
                     data-action="removeStatus" title="Remove status">
                     <i class="fa fa-minus"></i>
                 </button>
+              {{else}}
+                <div class="pull-right">
+                  <button type="button" class="btn btn-success btn-xs"
+                      data-action="likeStatus" title="Like status">
+                      <i class="fa fa-thumbs-up"></i>
+                  </button>
+                  <button type="button" class="btn btn-danger btn-xs"
+                      data-action="dislikeStatus" title="Dislike status">
+                      <i class="fa fa-thumbs-down"></i>
+                  </button>
+                </div>
               {{/if}}
               <p>
                 <string>{{firstName}}</string> posted on

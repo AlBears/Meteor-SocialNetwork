@@ -16,5 +16,13 @@ Template.listStatuses.events({
 /**Call method to remove a status and pass the status id*/
   'click button[data-action="removeStatus"]'(){
     Meteor.call('statuses.remove', this._id );
+  },
+/**Call method to like a status and send the status id*/
+  'click button[data-action="likeStatus"]'(){
+    Meteor.call('likes.add', this._id);
+  },
+/**Call method to dislike a status and send the status id*/
+  'click button[data-action="dislikeStatus"]'(){
+    Meteor.call('likes.remove', this._id);
   }
 });
