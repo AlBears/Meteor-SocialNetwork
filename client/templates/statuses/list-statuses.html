@@ -13,14 +13,18 @@
                 </button>
               {{else}}
                 <div class="pull-right">
-                  <button type="button" class="btn btn-success btn-xs"
-                      data-action="likeStatus" title="Like status">
-                      <i class="fa fa-thumbs-up"></i>
-                  </button>
-                  <button type="button" class="btn btn-danger btn-xs"
-                      data-action="dislikeStatus" title="Dislike status">
-                      <i class="fa fa-thumbs-down"></i>
-                  </button>
+                  {{#if hasLikedStatus _id}}
+                    <button type="button" class="btn btn-danger btn-xs"
+                        data-action="dislikeStatus" title="Dislike status">
+                        <i class="fa fa-thumbs-down"></i>
+                    </button>
+                  {{else}}
+                    <button type="button" class="btn btn-success btn-xs"
+                        data-action="likeStatus" title="Like status">
+                        <i class="fa fa-thumbs-up"></i>
+                    </button>
+                  {{/if}}
+
                 </div>
               {{/if}}
               <p>
@@ -28,6 +32,14 @@
                 <strong>{{statusDate createdAt}}</strong>
               </p>
               <p>{{status}}</p>
+              {{#if statusHasLikes}}
+                <p class="text-success">
+                  {{likesData.howMany}} {{likesData.notation}} this status:
+                  {{# each likesData.people}}
+                    <span>{{firstName}}</span>
+                  {{/each}}
+                </p>
+              {{/if}}
             </div>
           </div>
         </div>

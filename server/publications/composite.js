@@ -1,5 +1,6 @@
 /**
 * Return statuses made by friends of the logged-in user
+* Return the likes associated with the statuses
 */
 Meteor.publishComposite('friendData', {
   find: function(){

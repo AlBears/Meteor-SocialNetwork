@@ -9,7 +9,27 @@ Template.listStatuses.helpers({
 /* All statuses in descending order*/
   'statuses' () {return Statuses.find({}, { sort : { createdAt: -1} });},
 /**Check to see if the logged-in user is the owner of the status*/
-  'isOwnerOfStatus'(owner){ return owner === Meteor.userId() ? true : false }
+  'isOwnerOfStatus'(owner){ return owner === Meteor.userId() ? true : false },
+
+/**Check to see if the logged-in user has liked a status*/
+  'hasLikedStatus'(statusId) {
+    let likes = Likes.find({ statusId, owner: Meteor.userId() }).fetch();
+    return likes && likes.length ? true : false;
+  },
+/**Check to see if status has any like*/
+  'statusHasLikes' () {
+    return !!Likes.findOne({ statusId: this._id });
+  },
+/**Return how many people have liked the status*/
+  'likesData'() {
+    let people = Likes.find({ statusId: this._id });
+    let howMany = people.count();
+    return {
+      howMany,
+      people,
+      notation: howMany > 1 ? 'people like' : 'person likes'
+    }
+  }
 });
 
 Template.listStatuses.events({
