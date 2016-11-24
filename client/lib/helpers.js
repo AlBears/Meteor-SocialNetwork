@@ -19,4 +19,8 @@ Template.registerHelper('checkRelationshipStatus', (type, id) => {
     console.log('Something went wrong');
     break;
   }
-})
+});
+/**Get the parent template of a child template*/
+Template.registerHelper('parentData', () => {
+  return Template.parentData(2);
+});
