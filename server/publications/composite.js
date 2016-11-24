@@ -20,6 +20,11 @@ Meteor.publishComposite('friendData', {
               { statusId: status._id }
             ]  });
           }
+        },
+        {
+          find: function(status, friendship ){
+            return Comments.find({ statusId: status._id });
+          }
         }
       ]
     }

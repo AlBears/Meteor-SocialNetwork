@@ -10,7 +10,7 @@ Template.addComment.events({
     let statusId = this._id;
 
     if(!_.isEmpty(comment)){
-      //Meteor.call('comments.add', statusId, comment);
+      Meteor.call('comments.add', statusId, comment);
       event.target.comment.value = '';
       Session.set('commentError', '');
       template.commentError.set(false);
