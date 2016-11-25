@@ -1,0 +1,12 @@
+<template name="userProfile">
+  <h3>Account Settings</h3>
+  <p class="text-primary">Member since {{profileDate currentUser.profile.meta.signedUpOn}}</p>
+  <hr>
+  <div class="col-md-6 profile-form-div">
+    {{> editProfile}}
+  </div>
+  <div class="col-md-6">
+    profile image
+    edit emails
+  </div>
+</template>

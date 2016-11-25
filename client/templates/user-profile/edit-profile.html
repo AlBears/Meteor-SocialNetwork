@@ -1,0 +1,51 @@
+<template name="editProfile">
+  <form>
+
+    <div class="form-group">
+      <label for="firstName">First name</label>
+      <input type="text" class="form-control" name="firstName" id="firstName"
+      value="{{currentUser.profile.firstName}}">
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last name</label>
+      <input type="text" class="form-control" name="lastName" id="lastName"
+      value="{{currentUser.profile.lastName}}">
+    </div>
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" name="username" id="username"
+      value="{{currentUser.username}}">
+    </div>
+
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input type="text" class="form-control" name="location" id="location"
+      value="{{currentUser.profile.location}}">
+    </div>
+
+    <div class="form-group">
+      <label for="birthday">Birthday</label>
+      <input type="text" class="form-control" name="birthday" id="birthday"
+      value="{{profileDate currentUser.profile.birthday}}">
+    </div>
+
+    <div class="form-group">
+      <label for="primaryEmail">Primary Email</label>
+      <input type="email" class="form-control" name="primaryEmail" id="primaryEmail"
+      value="{{currentUser.profile.meta.primaryEmail}}" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="isPublicProfile">Public profile?</label>
+      <input type="checkbox" name="isPublicProfile" id="isPublicProfile"
+      value="{{currentUser.profile.meta.isPublicProfile}}">
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+      Save info <i class="fa fa-chevron-right"></i>
+    </button>
+
+  </form>
+</template>

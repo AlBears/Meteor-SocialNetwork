@@ -55,3 +55,14 @@ userRoutes.route('/findUsers', {
     });
   }
 });
+
+//Define edit user profile route
+userRoutes.route('/profile', {
+  name: 'profile',
+  action () {
+    BlazeLayout.render('mainLayout', {
+      navigation: 'userNav',
+      content: 'userProfile'
+    });
+  }
+});
