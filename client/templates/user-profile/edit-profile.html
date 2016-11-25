@@ -15,6 +15,9 @@
 
     <div class="form-group">
       <label for="username">Username</label>
+      {{#if usernameTaken}}
+        <div class="alert alert-danger" role="alert">{{usernameTaken}}</div>
+      {{/if}}
       <input type="text" class="form-control" name="username" id="username"
       value="{{currentUser.username}}">
     </div>
@@ -40,7 +43,7 @@
     <div class="form-group">
       <label for="isPublicProfile">Public profile?</label>
       <input type="checkbox" name="isPublicProfile" id="isPublicProfile"
-      value="{{currentUser.profile.meta.isPublicProfile}}">
+      checked="{{currentUser.profile.meta.isPublicProfile}}">
     </div>
 
     <button type="submit" class="btn btn-primary">
