@@ -1,0 +1,42 @@
+<template name="editEmails">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="2">
+          <form action="" name="addEmail">
+            <input type="email" class="form-control"
+              name="addEmail" id="addEmail"
+              placeholder="Add a new email">
+          </form>
+        </td>
+      </tr>
+      {{#if currentUser}}
+        {{#each currentUser.emails}}
+          <tr>
+            <td>{{address}}</td>
+            <td>
+              {{#if isPrimaryEmail}}
+                <span class="label label-primary">Cannot modify primary email</span>
+              {{else}}
+                <button type="button" class="btn btn-primary btn-xs"
+                  data-action="makePrimary" title="Make primary email">
+                    <i class="fa fa-send"></i>
+                </button>
+                <button type="button" class="btn btn-danger btn-xs"
+                  data-action="removeEmail" title="Remove email">
+                    <i class="fa fa-minus-square"></i>
+                </button>
+              {{/if}}
+            </td>
+          </tr>
+        {{/each}}
+      {{/if}}
+    </tbody>
+  </table>
+</template>
