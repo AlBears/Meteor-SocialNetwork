@@ -26,5 +26,26 @@ Meteor.methods({
         }
       })
     }
+  },
+  /**
+  * Add new email. Check if value not already registered
+  */
+  'profile.addEmail' (newEmail) {
+    if(!this.userId){throw new Meteor.Error(401, 'You must be logged in'); }
+    check(newEmail, String);
+
+    if (!this.isSimulation) {
+      if (Meteor.users.findOne({ _id: this.userId, "emails.address": { $in: [newEmail] } })) {
+        throw new Meteor.Error(403, `You already have ${newEmail} registered`);
+      }
+      Meteor.users.update({_id: this.userId }, {
+        $push: {
+          emails: {
+            address: newEmail,
+            verified: false
+          }
+        }
+      });
+    }
   }
-})
+});
