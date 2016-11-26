@@ -47,5 +47,27 @@ Meteor.methods({
         }
       });
     }
+  },
+  /**Set email address as primary email*/
+  'profile.makePrimary' (address) {
+    if(!this.userId){throw new Meteor.Error(401, 'You must be logged in'); }
+    check(address, String);
+
+    Meteor.users.update({ _id: this.userId }, {
+      $set: {
+        "profile.meta.primaryEmail": address
+      }
+    });
+  },
+  /**Remove email method*/
+  'profile.removeEmail' (address) {
+    if(!this.userId){throw new Meteor.Error(401, 'You must be logged in'); }
+    check(address, String);
+
+    Meteor.users.update({ _id: this.userId }, {
+      $pull: {
+        emails: { address }
+      }
+    });
   }
 });

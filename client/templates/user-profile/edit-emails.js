@@ -18,5 +18,13 @@ Template.editEmails.events({
         else { event.target.addEmail.value = ''; }
       });
     }
-  }
-})
+  },
+  /**Make email primary*/
+  'click button[data-action="makePrimary"]' () {
+    Meteor.call('profile.makePrimary', this.address)
+  },
+  /**Remove email*/
+  'click button[data-action="removeEmail"]' () {
+    Meteor.call('profile.removeEmail', this.address)
+  },
+});
