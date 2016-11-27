@@ -1,0 +1,11 @@
+<template name="profileImage">
+  <h5>Profile Image</h5>
+  {{#if currentUser}}
+    {{#if profileImage}}
+      <img src="{{profileImage.url}}" alt="Profile image" class = "img-thumbnail">
+    {{/if}}
+  {{/if}}
+  <form>
+    <input type="file" class="form-control" name="profileImage" id="profileImage">
+  </form>
+</template>
