@@ -1,3 +1,40 @@
 <template name="listAlbums">
-
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Album name</th>
+        <th>Public?</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each albums}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{#if isPublic}}Yes{{else}}No{{/if}}</td>
+        <td>
+          {{#if isPublic}}
+            <button type="button" class="btn btn-warning btn-xs"
+              data-action="toggleStatus" title="Make album private">
+              <i class="fa fa-user-secret"></i>
+            </button>
+          {{else}}
+            <button type="button" class="btn btn-primary btn-xs"
+              data-action="toggleStatus" title="Make album public">
+              <i class="fa fa-users"></i>
+            </button>
+          {{/if}}
+            <button type="button" class="btn btn-danger btn-xs"
+              data-action="removeAlbum" title="Remove album">
+              <i class="fa fa-minus-square"></i>
+            </button>
+        </td>
+      </tr>
+      {{else}}
+      <tr>
+        <td colspan="3">No albums registered</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </template>
