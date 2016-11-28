@@ -66,3 +66,14 @@ userRoutes.route('/profile', {
     });
   }
 });
+
+//Define the route to manage albums
+userRoutes.route('/albums', {
+  name: 'albums',
+  action () {
+    BlazeLayout.render('mainLayout', {
+      navigation: 'userNav',
+      content: 'albums'
+    });
+  }
+});
