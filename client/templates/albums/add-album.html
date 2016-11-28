@@ -1,3 +1,15 @@
 <template name="addAlbum">
-  
+  <h4>Manage albums</h4>
+  <form>
+    {{#if haveErrors}}
+      <div class="alert alert-danger" role="alert">{{haveErrors}}</div>
+    {{/if}}
+    <div class="form-group">
+      <label for="newAlbum">Add new album</label>
+      <input type="text" class="form-control" name="newAlbum" id="newAlbum">
+    </div>
+    <button type="submit" class="btn btn-primary btn-sm">
+      <i class="fa fa-folder"></i> Add album
+    </button>
+  </form>
 </template>
