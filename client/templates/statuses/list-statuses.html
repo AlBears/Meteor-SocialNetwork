@@ -5,6 +5,11 @@
       {{ #each statuses }}
         <div class="well status">
           <div class="media">
+            {{#each images owner}}
+              <div class="media-left">
+                <img src="{{url}}" alt="Profile image" class="media-object img-thumbnail">
+              </div>
+            {{/each}}
             <div class="media-body">
               {{#if isOwnerOfStatus owner}}
                 <button type="button" class="btn btn-warning btn-xs pull-right"

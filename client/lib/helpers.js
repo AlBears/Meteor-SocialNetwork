@@ -29,3 +29,7 @@ Template.registerHelper('checkRelationshipStatus', (type, id) => {
 Template.registerHelper('parentData', () => {
   return Template.parentData(2);
 });
+/**Images -> specific user*/
+Template.registerHelper('images', (owner) => {
+  return Images.find({ owner });
+})

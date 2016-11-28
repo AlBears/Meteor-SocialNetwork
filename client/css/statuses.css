@@ -5,3 +5,8 @@ form.add-status textarea {
 
 .status span::after { content: ',';}
 .status span:last-of-type::after { content: '';}
+
+.status .media-left img {
+  max-width: 60px;
+  height: auto;
+}

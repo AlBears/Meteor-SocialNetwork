@@ -24,6 +24,20 @@ Meteor.publishComposite('friendData', {
         {
           find: function(status, friendship ){
             return Comments.find({ statusId: status._id });
+          },
+
+          children: [
+            {
+              find: function(comment, status, friendship) {
+                return Images.find({ owner: comment.owner, isProfileImage: true
+                });
+              }
+            }
+          ]
+        },
+        {
+          find: function (status, friendship) {
+            return Images.find({ owner: status.owner, isProfileImage: true });
           }
         }
       ]

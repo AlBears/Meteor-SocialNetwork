@@ -1,6 +1,11 @@
 <template name="listComments">
   {{ #each comments statusId }}
   <div class="media comment">
+    {{#each images owner}}
+      <div class="media-left">
+        <img src="{{url}}" alt="Profile image" class="media-object img-thumbnail">
+      </div>
+    {{/each}}
     <div class="media-body">
       <p>
         <strong>{{firstName}}</strong> posted on

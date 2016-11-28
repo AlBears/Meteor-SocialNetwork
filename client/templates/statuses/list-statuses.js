@@ -2,6 +2,7 @@ Template.listStatuses.onCreated(function(){
   this.autorun(() => {
     this.subscribe('userStatuses');
     this.subscribe('userComments');
+    this.subscribe('profileImage');
     this.subscribe('friendData');
   });
 });
