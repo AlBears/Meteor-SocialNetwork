@@ -44,3 +44,22 @@ Meteor.publishComposite('friendData', {
     }
   ]
 });
+
+/**
+* Return all images with a particular album
+*/
+
+Meteor.publishComposite('photosByAlbum', function (name) {
+  return {
+    find: function () {
+      return Albums.find({ owner: this.userId, name });
+    },
+    children: [
+      {
+        find: function (album) {
+          return Images.find({ albumId: album._id, owner: this.userId, albumName: name})
+        }
+      }
+    ]
+  }
+})

@@ -1,0 +1,19 @@
+<template name="photosByAlbum">
+  <h4>Album name: {{albumName}}</h4>
+  <hr>
+  {{#each photos}}
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <img src="{{url}}" alt="Image">
+        <div class="caption text-center">
+          <button type="button" class="btn btn-danger btn-xs"
+            data-action="removeImage" title="Remove image">
+              <i class="fa fa-times-circle"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    {{else}}
+      <p>This album is empty</p>
+    {{/each}}
+</template>
