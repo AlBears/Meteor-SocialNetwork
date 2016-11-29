@@ -1,0 +1,34 @@
+<template name="photos">
+  <div class="col-md-6">
+    <h4>Upload photos</h4>
+    <form>
+      <div class="form-group">
+        <label for="selectAlbum">Select album</label>
+        <select name="selectAlbum" id="selectAlbum" class="form-control">
+          <option value="">Select an album</option>
+          {{#each albums}}
+            <option value="{{_id}}">{{name}}</option>
+          {{else}}
+            <option value="">No albums created</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="form-group">
+        <div id="dropzone" class="dropzone">
+          <div class="well">
+            Drop file(s) here to upload
+          </div>
+        </div>
+      </div>
+      {{#if uploadStatus}}
+        <div class="alert alert-info" role="alert">{{uploadStatus}}</div>
+      {{/if}}
+    </form>
+    <h4>Select album to view</h4>
+      {{#each albums}}
+        <a href="/user/photos/album/{{name}}" class="album-link">{{name}}</a>
+      {{else}}
+        No albums registered
+      {{/each}}
+  </div>
+</template>

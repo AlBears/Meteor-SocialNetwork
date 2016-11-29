@@ -77,3 +77,14 @@ userRoutes.route('/albums', {
     });
   }
 });
+
+//Define the route to upload photos
+userRoutes.route('/photos', {
+  name: 'photos',
+  action () {
+    BlazeLayout.render('mainLayout', {
+      navigation: 'userNav',
+      content: 'photos'
+    });
+  }
+});

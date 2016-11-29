@@ -1,0 +1,11 @@
+.album-link {
+  border-right: 1px solid #ccc;
+  padding-right: 10px;
+  margin-right: 10px;
+}
+
+.album-link:last-child {
+  border: none;
+  padding-right: 0;
+  margin-right: 0;
+}
