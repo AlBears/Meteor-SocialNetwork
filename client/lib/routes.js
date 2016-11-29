@@ -99,3 +99,17 @@ userRoutes.route('/photos/album/:name', {
     });
   }
 });
+/** Define public route for user profile */
+FlowRouter.route('/public/profile/:username', {
+  name: 'publicProfile',
+  action () {
+    BlazeLayout.render('fullLayout', { main: 'publicProfile' });
+  }
+});
+/** Define public route for user album */
+FlowRouter.route('/public/:username/album/:name', {
+  name: 'publicAlbum',
+  action () {
+    BlazeLayout.render('fullLayout', { main: 'publicAlbum' });
+  }
+})
