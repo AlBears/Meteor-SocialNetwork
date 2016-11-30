@@ -1,3 +1,30 @@
 <template name="sentRequests">
-  
+  <h4>Sent requests</h4>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Request sent to</th>
+        <th>Username</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each sentRequests}}
+        <tr>
+          <td>{{targetName}}</td>
+          <td>{{findUsernameById targetId}}</td>
+          <td>
+            <button type="button" class="btn btn-danger btn-xs pull-right"
+              data-action="cancelFriendRequest" title="Cancel friend request">
+              <i class="fa fa-times-circle"></i>
+            </button>
+          </td>
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan="3">No requests sent</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </template>

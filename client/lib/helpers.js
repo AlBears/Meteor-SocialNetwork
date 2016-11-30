@@ -25,7 +25,7 @@ Template.registerHelper('checkRelationshipStatus', (type, id) => {
     break;
   }
 });
-/**Get the parent template of a child template*/
+/** Get the parent template of a child template */
 Template.registerHelper('parentData', () => {
   return Template.parentData(2);
 });
@@ -33,3 +33,11 @@ Template.registerHelper('parentData', () => {
 Template.registerHelper('images', (owner) => {
   return Images.find({ owner });
 })
+/** Call a recative method to return the username */
+Template.registerHelper('findUsernameById', (id) => {
+  // return Meteor.call('users.findUsernameById', id, (error, result) => {
+  //   console.log(result);
+  //   return result;
+  // });
+  return ReactiveMethod.call('users.findUsernameById', id);
+});

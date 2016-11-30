@@ -12,7 +12,7 @@
       {{#each receivedRequests}}
       <tr>
         <td>{{requesterName}}</td>
-        <td>username</td>
+        <td>{{findUsernameById requesterId}}</td>
         <td>
           <button type="button" class="btn btn-danger btn-xs"
             data-action="rejectRequest" title="Reject friend request">
