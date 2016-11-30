@@ -34,3 +34,5 @@ simple:reactive-method        #Synchronous methods
 raix:ui-dropped-event         #Add 'dropped' event
 cfs:standard-packages         #CollectionFS core functionality
 cfs:gridfs                    #MongoDB storage
+
+meteortoys:allthings

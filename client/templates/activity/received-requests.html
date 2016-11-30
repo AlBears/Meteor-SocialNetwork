@@ -1,0 +1,34 @@
+<template name="receivedRequests">
+  <h4>Received requests</h4>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Request sent by</th>
+        <th>Username</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each receivedRequests}}
+      <tr>
+        <td>{{requesterName}}</td>
+        <td>username</td>
+        <td>
+          <button type="button" class="btn btn-danger btn-xs"
+            data-action="rejectRequest" title="Reject friend request">
+            <i class="fa fa-user-times"></i>
+          </button>
+          <button type="button" class="btn btn-primary btn-xs"
+            data-action="confirmFriendship" title="Confirm friendship">
+            <i class="fa fa-check-square"></i>
+          </button>
+        </td>
+      </tr>
+      {{else}}
+      <tr>
+        <td colspan="3">No requests received</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>
