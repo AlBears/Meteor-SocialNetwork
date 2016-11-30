@@ -7,7 +7,10 @@ Template.publicProfile.onCreated(function () {
 
 Template.publicProfile.helpers({
   'username' () { return FlowRouter.getParam('username'); },
-  'haveData' () { return Meteor.users.find().count() === 1 ? true : false; },
+  'haveData' () {
+    let username = FlowRouter.getParam('username');
+    return Meteor.users.find({ username }).count() === 1 && Meteor.users.findOne({ username }).profile.meta.isPublicProfile ? true : false; 
+  },
   'user' () {
     let username = FlowRouter.getParam('username');
     return Meteor.users.findOne({ username });
