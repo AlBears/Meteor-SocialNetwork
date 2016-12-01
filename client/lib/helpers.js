@@ -41,3 +41,7 @@ Template.registerHelper('findUsernameById', (id) => {
   // });
   return ReactiveMethod.call('users.findUsernameById', id);
 });
+
+Template.registerHelper('findEvents', function () {
+  return Events.find({ targetId: Meteor.userId() }).count();
+})

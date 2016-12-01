@@ -19,6 +19,20 @@ Meteor.methods({
       }
     });
 
+    if (!_.isEmpty(updates.username)) {
+      Images.update(
+        { owner: this.userId },
+        { $set: { username: updates.username } },
+        { multi: true }
+      );
+
+      Albums.update(
+        { owner: this.userId },
+        { $set: { username: updates.username } },
+        { multi: true }
+      );
+    }
+
     if (!_.isEmpty(updates.firstName) && !_.isEmpty(updates.lastName)){
       Meteor.users.update({ _id: this.userId }, {
         $set: {

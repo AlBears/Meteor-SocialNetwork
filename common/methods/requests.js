@@ -7,6 +7,7 @@ Meteor.methods({
     check(targetId, String);
     check(targetName, String );
     Requests.insert({ targetId, targetName });
+    Events.insert({ targetId })
   },
   /**
   * Cancel a request. Receives the type of request and id
@@ -20,9 +21,11 @@ Meteor.methods({
     switch (type){
       case 'userHasSent':
         Requests.remove({ requesterId: this.userId, targetId: id });
+        Events.remove({ owner: this.userId, targetId: id });
         break;
       case 'userHasReceived':
         Requests.remove({ requesterId: id, targetId: this.userId });
+        Events.remove({ owner: id, targetId: this.userId });
         break;
       default:
         console.log('Something went wrong');
@@ -39,6 +42,7 @@ Meteor.methods({
     check(fullName, String );
 
     Requests.remove({ requesterId: id, targetId: this.userId });
+    Events.remove({ owner: id, targetId: this.userId });
     Friendships.insert({
       friendName1: Meteor.user().profile.fullName,
       friendName2: fullName,

@@ -9,6 +9,9 @@
     </a>
     <a href="/user/activity" class="list-group-item">
       <i class="fa fa-caret-square-o-right"></i> Activity
+      {{#if findEvents}}
+        <span class="badge">{{findEvents}}</span>
+      {{/if}}
     </a>
     <a href="/user/dashboard" class="list-group-item">
       <i class="fa fa-sticky-note"></i> Statuses
